@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BoardsModule } from './boards/boards.module';
+import { ListsModule } from './lists/lists.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { BoardsModule } from './boards/boards.module';
       synchronize: true, // ⚠️ solo para desarrollo (crea tablas automáticamente)
     }),
     BoardsModule,
+    ListsModule,
   ],
 })
 export class AppModule {}

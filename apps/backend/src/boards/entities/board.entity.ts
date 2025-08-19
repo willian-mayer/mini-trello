@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { List } from '../../lists/entities/list.entity';
 
 @Entity()
 export class Board {
@@ -7,4 +8,7 @@ export class Board {
 
   @Column()
   title: string;
+
+  @OneToMany(() => List, list => list.board, { cascade: true })
+  lists: List[];
 }
